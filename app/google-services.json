@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "204286150047",
+    "firebase_url": "https://helmet-bc9bd.firebaseio.com",
+    "project_id": "helmet-bc9bd",
+    "storage_bucket": "helmet-bc9bd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:204286150047:android:6c348bf36b60babb",
+        "android_client_info": {
+          "package_name": "prac.zed.smarthelmet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "204286150047-j23cduc7r17oa9vua10r50jeo73rrtvo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfLBw2xeYsXQ_HfeLzcZoBOZGBkIdPHwY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
