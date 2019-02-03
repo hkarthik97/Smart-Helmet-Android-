@@ -29,15 +29,21 @@
             android:hint="Enter your email ID"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editPassword"
+            android:id="@+id/editTextPassword"
             />
         <Button
-            
+            android:layout_margin="15dp"
             android:text="Register User"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/buttonRegister"
             />
+
+        <TextView
+            android:textAlignment="center"
+            android:text="Already Registered ? Sign In here"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
 
     </LinearLayout>
