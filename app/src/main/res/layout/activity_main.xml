@@ -43,7 +43,8 @@
             android:textAlignment="center"
             android:text="Already Registered ? Sign In here"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewSignin"/>
 
 
     </LinearLayout>
