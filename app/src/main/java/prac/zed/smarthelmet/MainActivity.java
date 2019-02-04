@@ -1,6 +1,7 @@
 package prac.zed.smarthelmet;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -30,14 +31,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        firebaseAuth=firebaseAuth.getInstance();
 
+        firebaseAuth=firebaseAuth.getInstance();
+        if(firebaseAuth.getCurrentUser()!=null){
+            finish();
+            startActivity(new Intent(getApplicationContext(),ProfileActivity.class));
+
+
+        }
 
         progressDialog =new ProgressDialog(this);
+
         buttonRegister =(Button) findViewById(R.id.buttonRegister);
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
         textViewSignin = (TextView) findViewById(R.id.textViewSignin);
+
         //setting on click listener
         buttonRegister.setOnClickListener(this);
         textViewSignin.setOnClickListener(this);
@@ -69,7 +78,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         //checking if success
                         if(task.isSuccessful()){
                             //display some message here
-                            Toast.makeText(MainActivity.this,"Successfully registered",Toast.LENGTH_LONG).show();
+                            finish();
+                            startActivity(new Intent(getApplicationContext(),ProfileActivity.class));
                         }else{
                             //display some message here
                             Toast.makeText(MainActivity.this,"Registration Error",Toast.LENGTH_LONG).show();
@@ -83,6 +93,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view){
         if(view == buttonRegister ) {
             buttonRegister();
+        }
+        if(view==textViewSignin){
+            startActivity(new Intent(this,LoginActivity.class));
         }
 
     }
