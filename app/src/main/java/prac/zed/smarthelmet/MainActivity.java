@@ -2,6 +2,7 @@ package prac.zed.smarthelmet;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,7 +25,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText editTextPassword;
     private EditText editTextEmail;
     private TextView textViewSignin;
-    private ProgressDialog progressDialog;
+    ViewDialog viewDialog;
+    //private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
 
     @Override
@@ -39,8 +41,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         }
+        viewDialog = new ViewDialog(this);
 
-        progressDialog =new ProgressDialog(this);
+        //progressDialog =new ProgressDialog(this);
 
         buttonRegister =(Button) findViewById(R.id.buttonRegister);
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
@@ -67,8 +70,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
         //if the details are autheticated
-        progressDialog.setMessage("Registering Please Wait...");
-        progressDialog.show();
+//        progressDialog.setMessage("Registering Please Wait...");
+//        progressDialog.show();
+        viewDialog.showDialog();
 
         //creating a new user
         firebaseAuth.createUserWithEmailAndPassword(email, password)
@@ -84,7 +88,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             //display some message here
                             Toast.makeText(MainActivity.this,"Registration Error",Toast.LENGTH_LONG).show();
                         }
-                        progressDialog.dismiss();
+                        //progressDialog.dismiss();
+                        viewDialog.hideDialog();
+//                        final Handler handler = new Handler();
+//                        handler.postDelayed(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                //...here i'm waiting 5 seconds before hiding the custom dialog
+//                                //...you can do whenever you want or whenever your work is done
+//                                viewDialog.hideDialog();
+//                            }
+//                        }, 5000);
+
+
                     }
                 });
 
