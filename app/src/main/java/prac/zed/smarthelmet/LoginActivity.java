@@ -22,8 +22,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private EditText editTextEmail;
     private EditText editTextPassword;
     private TextView textViewSignup;
-    private ProgressDialog  progressDialog;
+//    private ProgressDialog  progressDialog;
     private FirebaseAuth firebaseAuth;
+    ViewDialog viewDialog;
 
 
 
@@ -40,8 +41,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         }
 
-        progressDialog = new ProgressDialog(this);
-
+//        progressDialog = new ProgressDialog(this);
+        viewDialog = new ViewDialog(this);
         editTextEmail     = (EditText) findViewById(R.id.editTextEmail);
         editTextPassword  = (EditText) findViewById(R.id.editTextPassword);
         buttonSignIn      = (Button) findViewById(R.id.buttonSignIn);
@@ -64,13 +65,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             return;
         }
 
-        progressDialog.setMessage("Lets Go...");
-        progressDialog.show();
+//        progressDialog.setMessage("Lets Go...");
+//        progressDialog.show();
+        viewDialog.showDialog();
         firebaseAuth.signInWithEmailAndPassword(email,password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        progressDialog.dismiss();
+//                        progressDialog.dismiss();
+                        viewDialog.hideDialog();
                         if(task.isSuccessful()){
                             //STARTS AFTER AUTHENTICATION
                             finish();
@@ -93,9 +96,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             finish();
             startActivity(new Intent(this,MainActivity.class));
         }
-
-
-
 
     }
 }
