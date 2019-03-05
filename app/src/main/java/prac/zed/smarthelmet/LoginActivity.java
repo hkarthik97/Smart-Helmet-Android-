@@ -22,6 +22,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private EditText editTextEmail;
     private EditText editTextPassword;
     private TextView textViewSignup;
+    private TextView ForgotPassword;
 //    private ProgressDialog  progressDialog;
     private FirebaseAuth firebaseAuth;
     ViewDialog viewDialog;
@@ -47,9 +48,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         editTextPassword  = (EditText) findViewById(R.id.editTextPassword);
         buttonSignIn      = (Button) findViewById(R.id.buttonSignIn);
         textViewSignup    = (TextView) findViewById(R.id.textViewSignUp);
+        ForgotPassword    = (TextView) findViewById(R.id.ForgotPassword);
 
         buttonSignIn   . setOnClickListener(this);
         textViewSignup . setOnClickListener(this);
+        ForgotPassword .setOnClickListener(this);
+
+    }
+    private void ForgotPassword(){
+        startActivity(new Intent(this,ForgotActivity.class));
 
     }
     private void userLogin(){
@@ -95,6 +102,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         {
             finish();
             startActivity(new Intent(this,MainActivity.class));
+        }
+        if(view == ForgotPassword){
+            ForgotPassword();
         }
 
     }

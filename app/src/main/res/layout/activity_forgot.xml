@@ -6,4 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".ForgotActivity">
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter Registered Email"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="116dp"
+        tools:layout_editor_absoluteY="180dp" />
+
+    <EditText
+        android:id="@+id/ForgetEmail"
+        android:layout_width="261dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+
+        tools:layout_editor_absoluteX="75dp"
+        tools:layout_editor_absoluteY="219dp" />
+
+    <Button
+        android:id="@+id/ResetButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Retrieve Password"
+        tools:layout_editor_absoluteX="122dp"
+        tools:layout_editor_absoluteY="280dp" />
+
 </android.support.constraint.ConstraintLayout>
